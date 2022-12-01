@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link
+      rel="shortcut icon"
+      href="https://cdn-icons-png.flaticon.com/512/1968/1968750.png"
+      type="image/x-icon"
+    />
+    <title>SocialBook</title>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const DEFAULT_AVATAR =
+        "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+
+      const users = [
+        {
+          id: 1,
+          name: "Pranav Yeole",
+          email: "pranav@gmail.com",
+          about:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris ultrices eros in cursus turpis massa tincidunt dui.",
+          avatar:
+            "https://res.cloudinary.com/dl26pbek4/image/upload/v1669881034/avatar/1_fe1cd3.png",
+          links: {
+            linkedin: "https://www.linkedin.com/in/pranav-yeole-3aab14215",
+            github: "https://github.com/pranvinit",
+            youtube: "https://www.youtube.com/channel/UC-n2pLjaBS7s72Fgtwsun7Q",
+          },
+        },
+        {
+          id: 2,
+          name: "Aditya Patil",
+          email: "aditya@gmail.com",
+          about:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris ultrices eros in cursus turpis massa tincidunt dui.",
+          avatar: null,
+          links: {
+            linkedin: "https://www.linkedin.com/in/aditya-patil-353215217",
+            github: "https://github.com/adiii013",
+          },
+        },
+        {
+          id: 3,
+          name: "Nishant Bhosale",
+          email: "nishant@gmail.com",
+          about:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris ultrices eros in cursus turpis massa tincidunt dui.",
+          avatar: null,
+          links: {
+            linkedin: "https://www.linkedin.com/in/nishant-bhosale-6777241b6/",
+            github: "https://github.com/Nishant-Bhosale",
+          },
+        },
+        {
+          id: 4,
+          name: "John Smilga",
+          email: "john@gmail.com",
+          about:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris ultrices eros in cursus turpis massa tincidunt dui.",
+          avatar:
+            "https://res.cloudinary.com/dl26pbek4/image/upload/v1669880450/avatar/2_nucyfw.png",
+          links: {
+            linkedin: "https://www.linkedin.com/in/john-smilga-659100177",
+            github: "https://github.com/john-smilga",
+            youtube: "https://www.youtube.com/@CodingAddict",
+          },
+        },
+        {
+          id: 5,
+          name: "Stephen Grider",
+          email: "stephen@gmail.com",
+          about:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris ultrices eros in cursus turpis massa tincidunt dui.",
+          avatar:
+            "https://res.cloudinary.com/dl26pbek4/image/upload/v1669880450/avatar/3_mqcf41.png",
+          links: {
+            linkedin: "https://www.linkedin.com/in/stephengrider",
+            github: "https://github.com/StephenGrider",
+            youtube: "https://www.youtube.com/@stephengrider3783",
+          },
+        },
+        {
+          id: 1,
+          name: "Pranav Yeole",
+          email: "pranav@gmail.com",
+          about:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris ultrices eros in cursus turpis massa tincidunt dui.",
+          avatar:
+            "https://res.cloudinary.com/dl26pbek4/image/upload/v1669881034/avatar/1_fe1cd3.png",
+          links: {
+            linkedin: "https://www.linkedin.com/in/pranav-yeole-3aab14215",
+            github: "https://github.com/pranvinit",
+            youtube: "https://www.youtube.com/channel/UC-n2pLjaBS7s72Fgtwsun7Q",
+          },
+        },
+      ];
+
+      const Card = ({ id, name, email, avatar, links, about }) => {
+        return (
+          <div className="card">
+            <div className="top">
+              <img src={avatar || DEFAULT_AVATAR} alt={name} />
+              <div>
+                <p>{name}</p>
+                <p>{email}</p>
+              </div>
+            </div>
+            <div className={`bottom ${email}`}>
+              <div class="about">{about}</div>
+              <div class="socials">
+                {links.linkedin && (
+                  <div className="social">
+                    <a href={links.linkedin} target="_blank" rel="noreferrer">
+                      <img
+                        src="https://cdn-icons-png.flaticon.com/512/145/145807.png"
+                        href={links.linkedin}
+                      />
+                    </a>
+                  </div>
+                )}
+                {links.github && (
+                  <div className="social">
+                    <a href={links.github} target="_blank" rel="noreferrer">
+                      <img
+                        src="https://cdn-icons-png.flaticon.com/512/733/733609.png"
+                        href={links.github}
+                      />
+                    </a>
+                  </div>
+                )}
+                {links.youtube && (
+                  <div className="social">
+                    <a href={links.youtube} target="_blank" rel="noreferrer">
+                      <img
+                        src="https://cdn-icons-png.flaticon.com/512/174/174883.png"
+                        href={links.youtube}
+                      />
+                    </a>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        );
+      };
+
+      const App = () => {
+        const handleClick = () => {
+          const userList = document.querySelector(".list");
+          userList.classList.toggle("hide");
+        };
+
+        return (
+          <div className="app">
+            <h3 className="logo" onClick={() => window.location.reload()}>
+              SocialBook
+            </h3>
+            <div className="container">
+              <button onClick={handleClick}>Show/Hide Network</button>
+              <div class="list">
+                {users.map((user) => (
+                  <Card key={user.id} {...user} />
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+      };
+
+      const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+      rootElement.render(<App />);
+    </script>
+  </body>
+</html>
